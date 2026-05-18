@@ -1,0 +1,13 @@
+export function sanitizeUser(user) {
+  if (!user) return null;
+  const { password, ...safe } = user;
+  return safe;
+}
+
+export function ok(res, data, status = 200) {
+  return res.status(status).json({ data });
+}
+
+export function fail(res, message, status = 400) {
+  return res.status(status).json({ error: message });
+}

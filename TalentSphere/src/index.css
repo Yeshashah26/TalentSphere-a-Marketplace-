@@ -1,0 +1,234 @@
+:root {
+  --bg: #050508;
+  --bg-card: #12121a;
+  --bg-input: #1a1a24;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f4f4f5;
+  --text-muted: #a1a1aa;
+  --purple: #8b5cf6;
+  --purple-dark: #6d28d9;
+  --purple-glow: rgba(139, 92, 246, 0.35);
+  --blue: #3b82f6;
+  --orange: #f59e0b;
+  --green: #22c55e;
+  --radius: 12px;
+  --radius-lg: 16px;
+  --font: 'Inter', system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--purple);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.starry-bg {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, rgba(255, 255, 255, 0.4), transparent),
+    radial-gradient(1px 1px at 80px 120px, rgba(255, 255, 255, 0.25), transparent),
+    radial-gradient(1.5px 1.5px at 160px 60px, rgba(255, 255, 255, 0.35), transparent),
+    radial-gradient(1px 1px at 240px 180px, rgba(255, 255, 255, 0.2), transparent),
+    radial-gradient(1px 1px at 320px 40px, rgba(255, 255, 255, 0.3), transparent);
+  background-size: 400px 200px;
+}
+
+.container {
+  width: min(1200px, 100% - 2rem);
+  margin-inline: auto;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s, opacity 0.15s, box-shadow 0.15s;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+  color: white;
+  box-shadow: 0 4px 20px var(--purple-glow);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.btn-white {
+  background: white;
+  color: #0a0a0a;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+}
+
+.btn-sm {
+  padding: 0.45rem 0.9rem;
+  font-size: 0.875rem;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.65rem 0.85rem;
+  color: var(--text);
+  outline: none;
+}
+
+.skills-input-row input {
+  width: auto;
+  flex: 1;
+  min-width: 0;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.65rem 0.85rem;
+  color: var(--text);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px var(--purple-glow);
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .form-grid-2,
+  .form-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chip {
+  display: inline-flex;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.chip.selected {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: var(--purple);
+  color: var(--purple);
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-pending { background: rgba(245, 158, 11, 0.2); color: var(--orange); }
+.badge-approved { background: rgba(34, 197, 94, 0.2); color: var(--green); }
+.badge-rejected { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+.badge-applied { background: rgba(59, 130, 246, 0.2); color: var(--blue); }
+
+.error-msg {
+  color: #f87171;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: var(--text-muted);
+}
+
+.empty-state svg {
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}

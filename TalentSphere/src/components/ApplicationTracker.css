@@ -1,0 +1,182 @@
+.app-tracker {
+  --tracker-green: #22c55e;
+  --tracker-green-light: #86efac;
+  --tracker-green-mid: #4ade80;
+  --tracker-green-dark: #16a34a;
+  --tracker-muted: #3f3f46;
+  --tracker-muted-line: #27272a;
+  padding: 1.5rem 0.5rem 0.5rem;
+  width: 100%;
+}
+
+.app-tracker-track {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.app-tracker-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+  min-width: 0;
+}
+
+.app-tracker-line {
+  position: absolute;
+  top: 22px;
+  right: 50%;
+  width: 100%;
+  height: 3px;
+  background: var(--tracker-muted-line);
+  z-index: 0;
+  transform: translateY(-50%);
+}
+
+.app-tracker-line.filled {
+  background: var(--tracker-green-mid);
+}
+
+.app-tracker-line.filled.rejected {
+  background: #ef4444;
+}
+
+.app-tracker-node {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.app-tracker-ring {
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-tracker-ring--outer {
+  width: 44px;
+  height: 44px;
+  border: 2px solid var(--tracker-muted);
+  background: transparent;
+}
+
+.app-tracker-ring--mid {
+  width: 34px;
+  height: 34px;
+  background: var(--tracker-muted);
+}
+
+.app-tracker-ring--inner {
+  width: 24px;
+  height: 24px;
+  background: var(--tracker-muted);
+  color: transparent;
+}
+
+.app-tracker-node--completed .app-tracker-ring--outer,
+.app-tracker-node--active .app-tracker-ring--outer {
+  border-color: var(--tracker-green-light);
+}
+
+.app-tracker-node--completed .app-tracker-ring--mid,
+.app-tracker-node--active .app-tracker-ring--mid {
+  background: var(--tracker-green-light);
+}
+
+.app-tracker-node--completed .app-tracker-ring--inner,
+.app-tracker-node--active .app-tracker-ring--inner {
+  background: var(--tracker-green);
+  color: white;
+}
+
+.app-tracker-node--active .app-tracker-ring--outer {
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
+}
+
+.app-tracker-node--rejected .app-tracker-ring--outer {
+  border-color: #fca5a5;
+}
+
+.app-tracker-node--rejected .app-tracker-ring--mid {
+  background: #fca5a5;
+}
+
+.app-tracker-node--rejected .app-tracker-ring--inner {
+  background: #ef4444;
+  color: white;
+}
+
+.app-tracker-label {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-align: center;
+  color: var(--tracker-muted);
+  line-height: 1.3;
+  padding: 0 0.25rem;
+  max-width: 100%;
+}
+
+.app-tracker-label--completed,
+.app-tracker-label--active {
+  color: var(--tracker-green);
+}
+
+.app-tracker-label--rejected {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.app-tracker--rejected .app-tracker-label--completed {
+  color: var(--tracker-green-dark);
+}
+
+@media (max-width: 640px) {
+  .app-tracker {
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .app-tracker-track {
+    min-width: 520px;
+  }
+
+  .app-tracker-label {
+    font-size: 0.7rem;
+  }
+
+  .app-tracker-node {
+    width: 38px;
+    height: 38px;
+  }
+
+  .app-tracker-ring--outer {
+    width: 38px;
+    height: 38px;
+  }
+
+  .app-tracker-ring--mid {
+    width: 28px;
+    height: 28px;
+  }
+
+  .app-tracker-ring--inner {
+    width: 20px;
+    height: 20px;
+  }
+
+  .app-tracker-line {
+    top: 19px;
+  }
+}

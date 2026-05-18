@@ -1,0 +1,231 @@
+.messages-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.messages-error {
+  margin: 0;
+}
+
+.messages-new-hint {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin: 0 0 1rem;
+}
+
+.messages-first-form .form-group {
+  margin-bottom: 0.75rem;
+}
+
+.messages-first-form .form-group label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.messages-first-form input,
+.messages-first-form textarea {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+}
+
+.messages-compose {
+  padding: 1.25rem;
+}
+
+.messages-compose h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.messages-hint {
+  padding: 1.25rem;
+  border-left: 3px solid var(--purple);
+}
+
+.messages-hint p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.messages-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1rem;
+  min-height: 420px;
+}
+
+.messages-threads {
+  padding: 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.messages-threads h3 {
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+}
+
+.thread-list {
+  list-style: none;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.thread-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem;
+  border: none;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  margin-bottom: 0.35rem;
+}
+
+.thread-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.thread-item.active {
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+}
+
+.thread-item strong {
+  display: block;
+  font-size: 0.9rem;
+}
+
+.thread-role {
+  font-size: 0.7rem;
+  color: var(--purple);
+  text-transform: capitalize;
+  margin-left: 0.35rem;
+}
+
+.thread-item p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0.35rem 0 0.2rem;
+}
+
+.thread-item small {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.messages-thread-view {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 420px;
+}
+
+.thread-view-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.thread-view-header h3 {
+  font-size: 1.05rem;
+}
+
+.thread-role-badge {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(139, 92, 246, 0.2);
+  color: var(--purple);
+  text-transform: capitalize;
+}
+
+.message-bubbles {
+  list-style: none;
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  max-height: 320px;
+}
+
+.bubble {
+  max-width: 85%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+}
+
+.bubble.theirs {
+  align-self: flex-start;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+}
+
+.bubble.mine {
+  align-self: flex-end;
+  background: rgba(139, 92, 246, 0.2);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+}
+
+.bubble p {
+  font-size: 0.9rem;
+  margin-bottom: 0.35rem;
+}
+
+.bubble small {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.reply-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}
+
+.reply-form textarea {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.75rem;
+  color: var(--text);
+  resize: vertical;
+}
+
+.messages-reply-blocked {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  padding: 1rem;
+  background: rgba(245, 158, 11, 0.1);
+  border-radius: var(--radius);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+@media (max-width: 768px) {
+  .messages-layout {
+    grid-template-columns: 1fr;
+  }
+}
